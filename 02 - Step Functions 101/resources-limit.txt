@@ -1,0 +1,3 @@
+Here are some useful links from the previous lesson:
+
+* The official documentation on Step Functions service limits: https://docs.aws.amazon.com/step-functions/latest/dg/limits.html

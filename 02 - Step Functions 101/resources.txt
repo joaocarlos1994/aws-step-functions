@@ -1,0 +1,3 @@
+Here are some useful links from the previous lesson:
+
+* The official documentation on retry behaviour: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-errors.html#amazon-states-language-retrying-after-error
