@@ -1,0 +1,77 @@
+{
+    "Comment": "A Hello World example of the Amazon States Language using Pass states",
+    "StartAt": "GottaDoThemAll",
+    "States": {
+      "GottaDoThemAll": {
+        "Type": "Parallel",
+        "Branches": [
+            {
+                "StartAt": "Add",
+                "States": {
+                    "Add": {
+                        "Type": "Task",
+                        "Resource": "",
+                        "Next": "Double"
+                    }, 
+                    "Double": {
+                        "Type": "Task",
+                        "Resource": "",
+                        "End": true
+                    }
+                }
+            },
+            {
+                "StartAt": "PickX",
+                "States":{
+                    "PickX": {
+                        "Type": "Pass",
+                        "InputPath": "$.x",
+                        "Next": "Double2"
+                    },
+                    "Double2": {
+                        "Type": "Task",
+                        "Resource":"",
+                        "End": true
+                    }
+                }
+            },
+            {
+                "StartAt": "Wait5Seconds",
+                "States": {
+                    "Wait5Seconds": {
+                        "Type": "Wait",
+                        "Seconds": 5,
+                        "End": true
+                    }
+                }
+            },
+            {
+                "StartAt": "NestedParallel",
+                "States": {
+                    "NestedParallel": {
+                        "Type": "Parallel",
+                        "Branches": [
+                            {
+                                "Start": "PickY",
+                                "States": {
+                                    "PickY": {
+                                        "Type": "Pass",
+                                        "InputPath": "$.y",
+                                        "Next": "Double3"
+                                    },
+                                    "Double3": {
+                                        "Type": "Task",
+                                        "Resource": "",
+                                        "End": true
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "End": true
+      }
+  }
+}  
